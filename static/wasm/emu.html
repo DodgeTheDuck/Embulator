@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>WASM EMU</title>
+    <style>
+
+      body {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        overflow-x: auto !important;
+        background-color: #2b373f;
+        margin: 0px;
+        padding: 0px;
+        font-family: monospace;
+      }
+
+      .app {
+        width: 100%;
+        height: 100%;
+
+      }
+
+      .nav {
+        height: 0px;
+      }
+
+      .app-body {
+        width: 100%;
+        height: calc(100% - 0px);
+        display: flex;
+      }
+
+      .view {        
+        padding: 8px;
+        margin: 0px;
+        overflow: hidden;
+        min-width: 164px;
+      }
+
+      .view-small {
+        min-width: 64px;
+      }
+
+      .view-body {
+        border: 1px solid black;
+        padding: 4px;        
+        background-color: #161c20;
+        color: white;
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      .title {
+        border-bottom: 1px solid black;
+        display: block;
+        height: 24px;
+        text-align: center;
+        padding-top: 4px;
+        color: rgb(242, 139, 84);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .seperator {
+        border-bottom: 1px solid rgb(242, 139, 84);        
+        margin-bottom: 8px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .program-counter {
+        background-color: #36454f;
+      }
+
+      #dis > tr:hover td {
+        background-color: #36454f !important;
+      }
+
+      .white {
+        color: white;
+      }
+
+      .container {
+        padding: 16px;
+      }
+
+      .breakpoint {
+        border-left: 3px solid red;
+      }
+
+      .control {
+        width: 24px;
+        height: 24px;
+        padding: 0px;
+        margin: 0px;
+        display: block;
+        outline: none;
+      }
+
+      .control:hover {
+        outline: 2px solid white;
+        cursor: pointer;
+      }
+
+      #btn_run {
+        background-image: url("asset/btn_play.png");       
+      }
+
+      #screen {
+        width: 256px;
+        height: 240px;
+        -ms-interpolation-mode: nearest-neighbor;
+        image-rendering: pixelated;
+      }
+
+      .view-collection {
+        display: flex;
+      }
+
+      .fullscreen {
+        width: 100%;
+        align-content: center;
+      }
+
+      .fullscreen > .view-body {
+        text-align: center;
+      }
+
+      #debugger {
+        display: none;
+      }
+
+      .no-scroll {
+        overflow: hidden;
+      }
+
+      .black {
+        background-color: black;
+      }
+
+      .debug-toggle {
+        font-size: 32px;
+        vertical-align: middle;
+        margin: auto;
+        display: flex;
+        align-items: center;
+      }
+
+      .debug-toggle:hover {
+        border-color: white;
+        cursor: pointer;        
+      }
+
+      .metric {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        color: #89eb34;
+      }
+
+    </style>
+  </head>
+  <body>    
+
+
+    <div class="app">
+
+      <div class="app-body">
+  
+        <div class="view fullscreen">
+          <div class="view-body no-scroll black">
+            <label class="metric" id="fps">&nbsp;</label>
+            <canvas id="screen" width="256" height="240"></canvas>
+          </div>
+        </div>
+
+        <div class="view view-small">
+          <div class="view-body debug-toggle" id="toggle_debug">&lt;&lt;</div>
+        </div>
+
+        <div class="view-collection" id="debugger">
+
+          <div class="view">
+            <div class="view-body">
+              <label class="title">System</label>
+              <table id="sys">
+                <thead>
+                </thead>
+                <tbody>
+
+                </tbody>
+              </table>
+              <div class="seperator">&nbsp;</div>
+              <label class="title white">Control</label>
+              <div class="container">
+                <div class="control" id="btn_run">&nbsp;</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="view">
+            <div class="view-body">
+              <label class="title">Disassembly</label>
+              <table id="dis">
+                <thead>
+                  <td>Address</td>
+                  <td>Disassembly</td>
+                </thead>
+                <tbody>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="view">
+            <div class="view-body">
+              <label class="title">Bus</label>
+              <table id="bus">
+                <thead>
+                  <td>Address</td>
+                  <td>Value</td>
+                </thead>
+                <tbody>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="view">
+            <div class="view-body">
+              <label class="title">CPU</label>
+              <table id="cpu">
+                <thead>
+                  <td>Register</td>
+                  <td>Value</td>
+                </thead>
+                <tbody>
+
+                </tbody>
+              </table>
+              <div class="seperator">&nbsp;</div>
+              <table id="cpu_status">
+                <thead>
+                  <td>N</td>
+                  <td>V</td>
+                  <td>U</td>
+                  <td>B</td>
+                  <td>D</td>
+                  <td>I</td>
+                  <td>Z</td>
+                  <td>C</td>
+                </thead>
+                <tbody>
+                  <tr></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="view">
+            <div class="view-body">
+              <label class="title">PPU</label>
+              <table id="ppu">
+                <thead>
+                </thead>
+                <tbody>
+
+                </tbody>
+              </table>
+              <label class="title white">Pattern Tables</label>
+              <div class="container">            
+                <canvas id="ppu_pattern" width=272 height=140></canvas>
+              </div>
+              <label class="title white">Palettes</label>
+              <div class="container">            
+                <canvas id="ppu_palettes" width=272 height=272></canvas>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+  </div>
+
+  </body>
+  <script type='text/javascript'>    
+
+    var Module = {
+      preRun: [],
+      postRun: [],
+      print: (function() {
+        return function(text) {
+          if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' ');
+          console.log(text);
+        };
+      })(),
+      printErr: function(text) {
+        if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' ');
+        console.error(text);
+      },
+    };
+
+    function ReadBus(from) {
+        let ReadBus = Module.cwrap("ReadBus", "number", ["number", "number"]);
+        let data = [];
+        data = ReadBus(from, 64);
+
+        for(let i = 0; i < 64; i++) {
+          let address = ToHex(from+i, 4);
+          let val = ToHex(Module.HEAPU8[data+i], 2);
+          UpdateRow(tblBus, address, [address, val]);
+        }
+    }
+
+    Module['onRuntimeInitialized'] = function() {
+      fnBreakpoint = Module.cwrap("AddBreakpoint", null, ['number']);
+      fnRemoveBreakpoint = Module.cwrap("RemoveBreakpoint", null, ['number']);
+      fnToggleRunning = Module.cwrap("ToggleRunning", null);
+      fnToggleDebugger = Module.cwrap("ToggleDebugger", null);
+      fnKeyUp = Module.cwrap("KeyUp", null, ["number", "number"]);
+      fnKeyDown = Module.cwrap("KeyDown", null, ["number", "number"]);
+      fetch("\\rom\\dk.nes").then((response) => {
+        response.arrayBuffer().then((buffer) => {
+
+            let bytes = new Uint8Array(buffer);
+            let LoadProgram = Module.cwrap("LoadProgram", null, ['array', 'number']);
+            LoadProgram(bytes, bytes.length);
+
+        });
+      })    
+    }
+
+    let fnAddBreakpoint = 0;
+    let fnRemoveBreakpoint = 0;
+    
+    let fnToggleDebugger = 0;
+    let fnToggleRunning = 0;
+
+    let fnKeyUp = 0;
+    let fnKeyDown = 0;
+    
+    let tblDis = document.getElementById("dis");      
+    let tblBus = document.getElementById("bus");    
+    let tblCpu = document.getElementById("cpu");    
+    let tblSys = document.getElementById("sys");    
+
+    let lblFps = document.getElementById("fps");
+
+    let sectionDebugger = document.getElementById("debugger");
+
+    let btnRun = document.getElementById("btn_run");
+    let btnToggleDebug = document.getElementById("toggle_debug");
+
+    let tblCpuStatus = document.getElementById("cpu_status");
+
+    let cnvPattern = document.getElementById("ppu_pattern");
+    let ctxPattern = cnvPattern.getContext("2d");
+
+    let cnvPalettes = document.getElementById("ppu_palettes");
+    let ctxPalettes = cnvPalettes.getContext("2d");
+
+    let cnvScreen = document.getElementById("screen");
+    let ctxScreen = cnvScreen.getContext("2d");
+
+    let ptKeyboard = 0;
+
+    let frames = 0;
+    let frameLast = 0;
+    let frameDeltaAccumulator = 0;
+    
+    let pScreen = 0;
+
+    function ToHex(value, length) {
+      var str = '' + value.toString(16);
+        while (str.length < length) {
+            str = '0' + str;
+        }       
+        return "0x" + str.toUpperCase();
+    }
+
+    function FindRow(table, index) {
+      let trs = table.querySelectorAll("tr");
+      for(let i = 0; i < trs.length; i++) {
+        if(trs[i].firstChild.textContent === index.toString()) {
+          return trs[i];
+        }
+      }
+      return null;
+    }
+
+    function UpdateFlags(tbl, value) {
+
+      let tr = tbl.tBodies[0].querySelector("tr");
+
+      tr.innerHTML = "";
+
+      for(let i = 7; i >= 0; i--) {
+        let td = document.createElement("td");
+        td.innerText = (value >> i) & 0x1;
+        tr.appendChild(td);
+      }
+
+    }
+
+    function UpdateRow(table, index, data) {
+
+      let row = FindRow(table, index);
+
+      if(row !== null) {
+        row.innerHTML = "";
+        for(let i = 0; i < data.length; i++) {
+          let td = document.createElement("td");
+          td.textContent = data[i];
+          row.appendChild(td);
+        }
+      } else {
+        let tr = document.createElement("tr");
+        for(let i = 0; i < data.length; i++) {
+          let td = document.createElement("td");
+          td.textContent = data[i];
+          tr.appendChild(td);
+        }
+        table.appendChild(tr);
+      }
+    }
+
+    function ResizeScreen() {
+      let padding = parseFloat(window.getComputedStyle(cnvScreen.parentElement, null).getPropertyValue("padding"));
+      let containerWidth = cnvScreen.parentElement.getClientRects()[0].width - padding * 2;
+      let containerHeight = cnvScreen.parentElement.getClientRects()[0].height - padding * 2;
+      if(containerHeight < containerWidth) {
+        let height = containerHeight;
+        let width = 256 * height / 240;
+        cnvScreen.style.width = width + "px";
+        cnvScreen.style.height = height + "px";
+      } else {
+        let width = containerWidth
+        let height = 240 * width / 256;
+        cnvScreen.style.width = width + "px";
+        cnvScreen.style.height = height + "px";
+      }
+    }
+
+    ResizeScreen();
+
+    function InsertRow(table, index, data) {
+
+      let tr = document.createElement("tr");
+      for(let i = 0; i < data.length; i++) {
+        let td = document.createElement("td");
+        td.textContent = data[i];
+        tr.appendChild(td);
+      }
+      table.appendChild(tr);
+
+      return tr;
+    
+    }
+
+    function UpdateComponent(cName, object) {
+        switch(cName) {
+          case "bus": {
+            if(tblBus) {
+              let address = ToHex(object.address, 4);
+              let value = ToHex(object.value, 2);
+              UpdateRow(tblBus, address, [address, value]);
+            }
+            break;
+          }
+          case "cpu": {
+            let name = GetCString(object.name, object.length);
+            let value = ToHex(object.value, object.bits / 4);
+            UpdateRow(tblCpu, name, [name, value]);
+            if(name === "STATUS") {
+              UpdateFlags(tblCpuStatus, object.value);
+            }
+            break;
+          }
+          case "disassembler": {
+            if(object.pc !== undefined) {
+              let address = ToHex(object.pc, 4);
+              let tr = FindRow(tblDis, address);
+              let old = document.querySelector(".program-counter");
+              if(old) {
+                old.classList.remove("program-counter");
+              }
+              if(tr) {
+                tr.classList.add("program-counter");
+              }
+            } else {
+              let name = GetCString(object.mnem, 3);
+              let address = ToHex(object.address, 4);
+              let pc = object.pc;
+              let tr = InsertRow(tblDis, address, [address, name]);
+              tr.onclick = function() {
+                tr.classList.remove("breakpoint");
+                tr.classList.add("breakpoint");
+                fnBreakpoint(tr.firstChild.textContent.toString(10));
+              }
+              tr.oncontextmenu = function(ev) {
+                ev.preventDefault();
+                tr.classList.remove("breakpoint");
+                fnRemoveBreakpoint(tr.firstChild.textContent.toString(10));
+              }
+            }
+            break;
+          }
+          case "screen": {
+            pScreen = object.data;
+            break;
+          }
+          case "system": {
+            if(object.fps) {
+              let name = "FPS"
+              let value = object.fps;
+              UpdateRow(tblSys, name, [name, value]);
+            } else if(object.cycles) {
+              let name = "CPS"
+              let value = object.cycles.toLocaleString();
+              UpdateRow(tblSys, name, [name, value]);
+            }
+            break;
+          }
+          case "ppu": {
+            if(object.pattern) {
+              DrawPatterns(object.pattern, object.index);
+            }
+            if(object.r) {
+              DrawPalette(object.r, object.g, object.b, object.x, object.y);
+            }
+            break;
+          }
+        }
+    }
+
+    function Draw() {
+
+      let now = performance.now();
+      frameDeltaAccumulator += now - frameLast;
+      frameLast = now;
+      frames++;
+      if(frameDeltaAccumulator > 1000) {
+        lblFps.textContent = frames + "fps";
+        frameDeltaAccumulator = 0;
+        frames = 0;
+      }
+
+      if(pScreen > 0) {
+
+        let buffer = ctxScreen.getImageData(0, 0, 340, 260);
+
+        for(let i = 0; i < 340*260*4; i+=4) {
+          buffer.data[i] = Module.HEAPU8[i+pScreen];
+          buffer.data[i+1] = Module.HEAPU8[i+pScreen+1];
+          buffer.data[i+2] = Module.HEAPU8[i+pScreen+2];
+          buffer.data[i+3] = Module.HEAPU8[i+pScreen+3];
+        }
+
+        ctxScreen.putImageData(buffer, 0, 0);
+
+      }
+
+    }
+
+    function DrawPatterns(data, index) {
+
+      let buffer = ctxScreen.getImageData(0, 0, 128, 128);
+
+      for(let i = 0; i < 128*128*4; i+=4) {
+        buffer.data[i] = Module.HEAPU8[i+data];
+        buffer.data[i+1] = Module.HEAPU8[i+data+1];
+        buffer.data[i+2] = Module.HEAPU8[i+data+2];
+        buffer.data[i+3] = Module.HEAPU8[i+data+3];
+      }
+
+      ctxPattern.putImageData(buffer, 128 * index + (index * 16), 0);
+      
+    }
+
+    function DrawPalette(r, g, b, x, y) {
+      ctxPalettes.fillStyle = `rgb(${r}, ${g}, ${b})`;
+      ctxPalettes.fillRect(x * 16, y * 16, 16, 16);
+    }
+
+    function Run() {
+      Draw();
+      window.requestAnimationFrame(() => {Run();});
+    }
+
+    window.addEventListener("keydown", (ev) => {
+      //fnKeyDown(0, ev.which);
+      if(ev.which < 255) {
+        Module.HEAPU8[ptKeyboard+(ev.which*4)] = 1;
+      }
+    });
+
+    window.addEventListener("keyup", (ev) => {
+      //fnKeyUp(0, ev.which);
+      if(ev.which < 255) {
+        Module.HEAPU8[ptKeyboard+(ev.which*4)] = 0;
+      }
+    });
+
+    btnRun.onclick = function() {
+      fnToggleRunning();
+    }
+
+    btnToggleDebug.onclick = function() {
+      if(this.textContent==="<<") {
+        sectionDebugger.style.display = "flex";
+        this.textContent = ">>";
+      } else {
+        sectionDebugger.style.display = "none";
+        this.textContent = "<<";
+      }
+      fnToggleDebugger();
+      ResizeScreen();
+    }
+
+    Run();
+
+    function GetCString(pStr, len) {
+      let result = "";
+      for(let i = 0; i < len; i++) {
+        result += String.fromCharCode(Module.HEAPU8[pStr+i]);
+      }
+      return result;
+    }
+
+    document.addEventListener("keyup", (ev) => {
+      if(ev.which === 83) {
+        let step = Module.cwrap("Step");
+        step();
+      }
+    });
+
+    function SetKeyboardPointer(address) {
+      ptKeyboard = address;
+    }
+
+  </script>
+  <script async type="text/javascript" src="emu.js"></script>
+
+</html>
+
+

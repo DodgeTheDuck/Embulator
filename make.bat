@@ -1,0 +1,3 @@
+@Call c:\ems\emsdk activate latest
+cd ./static/wasm/src/
+em++ main.cpp ram.cpp storage.cpp system.cpp mapper.cpp mapper_000.cpp mapper_001.cpp system_nes.cpp clock.cpp register.cpp instruction.cpp instruction_set.cpp 6502_instruction_set.cpp 6502_cpu.cpp bus.cpp component.cpp dma.cpp timer.cpp disassembler.cpp cartridge.cpp cpu.cpp ppu.cpp input.cpp --source-map-base http://127.0.0.1:3000/wasm/src/ -O3 -s EXPORTED_FUNCTIONS=["_ReadBus","_LoadProgram","_main","_Step","_AddBreakpoint","_ToggleRunning","_RemoveBreakpoint","_ToggleDebugger","_KeyUp","_KeyDown"] -s LLD_REPORT_UNDEFINED -s DEMANGLE_SUPPORT=1 -s EXPORTED_RUNTIME_METHODS=["ccall","cwrap"] -s ASYNCIFY -s WASM=1 -I ./include -o ../emu.js

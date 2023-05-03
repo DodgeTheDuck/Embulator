@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header">
+      <UniqueIdentifier>{67387a8f-2902-4eaf-a248-ca42b7e285e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{40883bce-256b-4936-acb1-09a53783d9cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\6502">
+      <UniqueIdentifier>{d011bf60-8a24-4e80-99ed-6cf23c08c800}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\component">
+      <UniqueIdentifier>{c5d7e0c2-e799-4299-a214-e313eedcd261}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\data">
+      <UniqueIdentifier>{8fd8d9da-1276-4dc0-ade2-81c9f6e21c11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\6502">
+      <UniqueIdentifier>{b512238d-9ced-4408-9930-b6d9b0e20f2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\component">
+      <UniqueIdentifier>{109e92ec-9b2a-4d24-8ff1-26d7c0530e96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\data">
+      <UniqueIdentifier>{37030e00-b85c-4306-9ed9-51b7b8ac53ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\nes">
+      <UniqueIdentifier>{788403c8-7510-49f8-b330-c3642ae5e1d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\nes">
+      <UniqueIdentifier>{c867d811-d01e-4bae-9d70-ddb70d180249}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\system">
+      <UniqueIdentifier>{04a2eaad-b861-405f-b840-262e99f9e324}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\system">
+      <UniqueIdentifier>{37a1ce12-edb3-4cf7-9c96-28d79bd38862}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bus.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="def.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="instruction.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="instruction_set.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="6502_instruction_set.h">
+      <Filter>Header\6502</Filter>
+    </ClInclude>
+    <ClInclude Include="6502_cpu.h">
+      <Filter>Header\6502</Filter>
+    </ClInclude>
+    <ClInclude Include="cpu.h">
+      <Filter>Header\component</Filter>
+    </ClInclude>
+    <ClInclude Include="rom.h">
+      <Filter>Header\data</Filter>
+    </ClInclude>
+    <ClInclude Include="ram.h">
+      <Filter>Header\data</Filter>
+    </ClInclude>
+    <ClInclude Include="storage.h">
+      <Filter>Header\data</Filter>
+    </ClInclude>
+    <ClInclude Include="component.h">
+      <Filter>Header\component</Filter>
+    </ClInclude>
+    <ClInclude Include="cartridge.h">
+      <Filter>Header\nes</Filter>
+    </ClInclude>
+    <ClInclude Include="system.h">
+      <Filter>Header\system</Filter>
+    </ClInclude>
+    <ClInclude Include="system_nes.h">
+      <Filter>Header\system</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="bus.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="instruction.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="instruction_set.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="6502_cpu.cpp">
+      <Filter>Source\6502</Filter>
+    </ClCompile>
+    <ClCompile Include="6502_instruction_set.cpp">
+      <Filter>Source\6502</Filter>
+    </ClCompile>
+    <ClCompile Include="component.cpp">
+      <Filter>Source\component</Filter>
+    </ClCompile>
+    <ClCompile Include="cpu.cpp">
+      <Filter>Source\component</Filter>
+    </ClCompile>
+    <ClCompile Include="storage.cpp">
+      <Filter>Source\data</Filter>
+    </ClCompile>
+    <ClCompile Include="ram.cpp">
+      <Filter>Source\data</Filter>
+    </ClCompile>
+    <ClCompile Include="rom.cpp">
+      <Filter>Source\data</Filter>
+    </ClCompile>
+    <ClCompile Include="cartridge.cpp">
+      <Filter>Source\nes</Filter>
+    </ClCompile>
+    <ClCompile Include="system.cpp">
+      <Filter>Source\system</Filter>
+    </ClCompile>
+    <ClCompile Include="system_nes.cpp">
+      <Filter>Source\system</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>

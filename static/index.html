@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            * {
+                overflow:hidden;
+                margin: 0px !important;
+                padding: 0px !important;
+            }
+
+            .app {
+                display: flex;
+            }
+
+            #disassembly {                
+                border-collapse: collapse;
+                /* height: 100%; */
+            }
+
+            #disassembly tr {
+                line-height: 32px;
+            }
+
+            #disassembly td {
+                border: 1px solid black;
+            }
+
+            
+            #registers {                
+                border-collapse: collapse;
+            }
+
+            #registers td {
+                border: 1px solid black;
+            }
+
+
+            #status {                
+                border-collapse: collapse;
+            }
+
+            #status td {
+                border: 1px solid black;
+                min-width: 16px;
+            }
+
+            .scroller {
+                overflow-y: scroll;
+            }
+
+            canvas {
+                image-rendering: -webkit-optimize-contrast; /* webkit */
+                image-rendering: -moz-crisp-edges; /* Firefox */
+                width: 1280px;
+            }
+
+            
+        </style>
+    </head>
+    <body>
+        <div class="app">
+            <div>
+                <canvas id="screen" width="640" height="480"></canvas>
+            </div>
+            <div>
+                <canvas id="debugger" width="1200" height="1024"></canvas>
+            </div>
+            <button type="button" id="save_log" style="display: none;">Log</button>
+        </div>
+
+    </body>
+</html>
+<script src="bld/bundle.js"></script>

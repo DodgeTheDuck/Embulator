@@ -1,0 +1,136 @@
+﻿  6502_cpu.cpp
+  6502_instruction_set.cpp
+  bus.cpp
+  cartridge.cpp
+  component.cpp
+  cpu.cpp
+  instruction.cpp
+  instruction_set.cpp
+  main.cpp
+  ram.cpp
+  rom.cpp
+  storage.cpp
+  system.cpp
+  system_nes.cpp
+C:\ems\upstream\emscripten\system\include\emscripten\em_asm.h(155,16): error C2065: 'nothrow': undeclared identifier
+C:\ems\upstream\emscripten\system\include\emscripten\em_asm.h(155,24): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\ems\upstream\emscripten\system\include\emscripten\em_asm.h(156,5): error C2448: '__attribute__': function-style initializer appears to be a function definition
+C:\ems\upstream\emscripten\system\include\emscripten\em_asm.h(157,16): error C2065: 'nothrow': undeclared identifier
+C:\ems\upstream\emscripten\system\include\emscripten\em_asm.h(157,24): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\ems\upstream\emscripten\system\include\emscripten\em_asm.h(157,1): error C2374: '__attribute__': redefinition; multiple initialization
+C:\ems\upstream\emscripten\system\include\emscripten\em_asm.h(155): message : see declaration of '__attribute__'
+C:\ems\upstream\emscripten\system\include\emscripten\em_asm.h(158,8): error C2448: '__attribute__': function-style initializer appears to be a function definition
+C:\ems\upstream\emscripten\system\include\emscripten\em_asm.h(160,16): error C2065: 'nothrow': undeclared identifier
+C:\ems\upstream\emscripten\system\include\emscripten\em_asm.h(160,24): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\ems\upstream\emscripten\system\include\emscripten\em_asm.h(160,1): error C2374: '__attribute__': redefinition; multiple initialization
+C:\ems\upstream\emscripten\system\include\emscripten\em_asm.h(155): message : see declaration of '__attribute__'
+C:\ems\upstream\emscripten\system\include\emscripten\em_asm.h(161,5): error C2448: '__attribute__': function-style initializer appears to be a function definition
+C:\ems\upstream\emscripten\system\include\emscripten\em_asm.h(163,16): error C2065: 'nothrow': undeclared identifier
+C:\ems\upstream\emscripten\system\include\emscripten\em_asm.h(163,24): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\ems\upstream\emscripten\system\include\emscripten\em_asm.h(163,1): error C2374: '__attribute__': redefinition; multiple initialization
+C:\ems\upstream\emscripten\system\include\emscripten\em_asm.h(155): message : see declaration of '__attribute__'
+C:\ems\upstream\emscripten\system\include\emscripten\em_asm.h(164,8): error C2448: '__attribute__': function-style initializer appears to be a function definition
+C:\ems\upstream\emscripten\system\include\emscripten\em_asm.h(167,16): error C2065: 'nothrow': undeclared identifier
+C:\ems\upstream\emscripten\system\include\emscripten\em_asm.h(167,24): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\ems\upstream\emscripten\system\include\emscripten\em_asm.h(167,1): error C2374: '__attribute__': redefinition; multiple initialization
+C:\ems\upstream\emscripten\system\include\emscripten\em_asm.h(155): message : see declaration of '__attribute__'
+C:\ems\upstream\emscripten\system\include\emscripten\em_asm.h(168,6): error C2448: '__attribute__': function-style initializer appears to be a function definition
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(162,1): error C2065: 'Uint8': undeclared identifier
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(163,1): error C2065: 'Sint8': undeclared identifier
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(164,1): error C2065: 'Uint16': undeclared identifier
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(164,53): error C2118: negative subscript
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(165,1): error C2065: 'Sint16': undeclared identifier
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(165,53): error C2118: negative subscript
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(166,1): error C2065: 'Uint32': undeclared identifier
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(166,53): error C2118: negative subscript
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(167,1): error C2065: 'Sint32': undeclared identifier
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(167,53): error C2118: negative subscript
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(168,1): error C2065: 'Uint64': undeclared identifier
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(168,53): error C2118: negative subscript
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(169,1): error C2065: 'Sint64': undeclared identifier
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(169,53): error C2118: negative subscript
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(192,1): error C2065: 'SDL_DUMMY_ENUM': undeclared identifier
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(192,69): error C2118: negative subscript
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(540,41): error C2065: 'Sint64': undeclared identifier
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(540,48): error C2146: syntax error: missing ')' before identifier 'value'
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(547,42): error C2065: 'Uint64': undeclared identifier
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(547,49): error C2146: syntax error: missing ')' before identifier 'value'
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(554,24): error C2143: syntax error: missing ';' before '__cdecl'
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(561,24): error C2143: syntax error: missing ';' before '__cdecl'
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(735,29): error C2143: syntax error: missing ';' before '__cdecl'
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(737,45): error C2065: 'SDL_iconv_t': undeclared identifier
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(737,57): error C2146: syntax error: missing ')' before identifier 'cd'
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(739,42): error C2065: 'SDL_iconv_t': undeclared identifier
+C:\ems\upstream\emscripten\system\include\SDL\SDL_stdinc.h(739,54): error C2146: syntax error: missing ')' before identifier 'cd'
+C:\ems\upstream\emscripten\system\include\SDL\SDL_main.h(82,64): error C2061: syntax error: identifier 'Uint32'
+C:\ems\upstream\emscripten\system\include\SDL\SDL_assert.h(117,34): error C2143: syntax error: missing ';' before '__cdecl'
+C:\ems\upstream\emscripten\system\include\SDL\SDL_assert.h(171,27): error C2059: syntax error: '__cdecl'
+C:\ems\upstream\emscripten\system\include\SDL\SDL_assert.h(195,45): error C2065: 'SDL_AssertionHandler': undeclared identifier
+C:\ems\upstream\emscripten\system\include\SDL\SDL_assert.h(195,66): error C2146: syntax error: missing ')' before identifier 'handler'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\setjmp.h(158,11): error C2065: 'jmp_buf': undeclared identifier
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\setjmp.h(158,19): error C2146: syntax error: missing ')' before identifier '_Buf'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\setjmp.h(163,28): error C2065: 'jmp_buf': undeclared identifier
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\setjmp.h(163,36): error C2146: syntax error: missing ')' before identifier '_Buf'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(404,36): error C3861: '_mm_setzero_si64': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(404,21): error C3861: '_m_pcmpgtw': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(406,25): error C3861: '_mm_setzero_ps': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(406,43): error C3861: '_m_punpckhwd': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(406,10): error C3861: '_mm_cvt_pi2ps': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(407,25): error C3861: '_mm_movelh_ps': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(408,25): error C3861: '_m_punpcklwd': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(407,10): error C3861: '_mm_cvt_pi2ps': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(423,21): error C3861: '_mm_setzero_si64': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(425,25): error C3861: '_mm_setzero_ps': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(425,43): error C3861: '_m_punpckhwd': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(425,10): error C3861: '_mm_cvt_pi2ps': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(426,25): error C3861: '_mm_movelh_ps': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(427,25): error C3861: '_m_punpcklwd': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(426,10): error C3861: '_mm_cvt_pi2ps': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(441,25): error C3861: '_mm_cvt_ps2pi': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(442,40): error C3861: '_mm_movehl_ps': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(442,25): error C3861: '_mm_cvt_ps2pi': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(441,10): error C3861: '_m_packssdw': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(456,35): error C3861: '_mm_setzero_si64': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(456,21): error C3861: '_m_pcmpgtb': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(458,25): error C3861: '_m_punpcklbw': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(473,46): error C3861: '_mm_setzero_si64': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(473,25): error C3861: '_m_punpcklbw': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(487,45): error C3861: '_mm_setzero_si64': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(487,10): error C3861: '_m_packsswb': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(502,38): error C3861: '_mm_setzero_ps': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(502,24): error C3861: '_mm_cvt_pi2ps': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(503,38): error C3861: '_mm_setzero_ps': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(503,24): error C3861: '_mm_cvt_pi2ps': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmmintrin.h(502,10): error C3861: '_mm_movelh_ps': identifier not found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\intrin.h(914,1): error C2065: 'jmp_buf': undeclared identifier
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\intrin.h(914,1): warning C4229: anachronism used: modifiers on data are ignored
+C:\ems\upstream\emscripten\system\include\SDL\SDL_atomic.h(106,26): error C2143: syntax error: missing ';' before '__cdecl'
+C:\ems\upstream\emscripten\system\include\SDL\SDL_atomic.h(106,26): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\ems\upstream\emscripten\system\include\SDL\SDL_atomic.h(106,71): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\ems\upstream\emscripten\system\include\SDL\SDL_atomic.h(201,26): error C2143: syntax error: missing ';' before '__cdecl'
+C:\ems\upstream\emscripten\system\include\SDL\SDL_atomic.h(201,26): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\ems\upstream\emscripten\system\include\SDL\SDL_atomic.h(201,89): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\ems\upstream\emscripten\system\include\SDL\SDL_atomic.h(276,26): error C2143: syntax error: missing ';' before '__cdecl'
+C:\ems\upstream\emscripten\system\include\SDL\SDL_atomic.h(276,26): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\ems\upstream\emscripten\system\include\SDL\SDL_atomic.h(276,89): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\ems\upstream\emscripten\system\include\SDL\SDL_endian.h(107,19): error C7525: inline variables require at least '/std:c++17'
+C:\ems\upstream\emscripten\system\include\SDL\SDL_endian.h(108,11): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\ems\upstream\emscripten\system\include\SDL\SDL_endian.h(108,1): error C2146: syntax error: missing ';' before identifier 'SDL_Swap16'
+C:\ems\upstream\emscripten\system\include\SDL\SDL_endian.h(108,19): error C2146: syntax error: missing ')' before identifier 'x'
+C:\ems\upstream\emscripten\system\include\SDL\SDL_endian.h(109,1): error C2143: syntax error: missing ';' before '{'
+C:\ems\upstream\emscripten\system\include\SDL\SDL_endian.h(109,1): error C2447: '{': missing function header (old-style formal list?)
+C:\ems\upstream\emscripten\system\include\SDL\SDL_endian.h(147,19): error C7525: inline variables require at least '/std:c++17'
+C:\ems\upstream\emscripten\system\include\SDL\SDL_endian.h(148,11): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\ems\upstream\emscripten\system\include\SDL\SDL_endian.h(148,1): error C2146: syntax error: missing ';' before identifier 'SDL_Swap32'
+C:\ems\upstream\emscripten\system\include\SDL\SDL_endian.h(148,19): error C2146: syntax error: missing ')' before identifier 'x'
+C:\ems\upstream\emscripten\system\include\SDL\SDL_endian.h(149,1): error C2143: syntax error: missing ';' before '{'
+C:\ems\upstream\emscripten\system\include\SDL\SDL_endian.h(149,1): error C2447: '{': missing function header (old-style formal list?)
+C:\ems\upstream\emscripten\system\include\SDL\SDL_endian.h(181,19): error C7525: inline variables require at least '/std:c++17'
+C:\ems\upstream\emscripten\system\include\SDL\SDL_endian.h(182,11): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\ems\upstream\emscripten\system\include\SDL\SDL_endian.h(182,1): error C2146: syntax error: missing ';' before identifier 'SDL_Swap64'
+C:\ems\upstream\emscripten\system\include\SDL\SDL_endian.h(182,19): error C2146: syntax error: missing ')' before identifier 'x'
+C:\ems\upstream\emscripten\system\include\SDL\SDL_endian.h(183,1): error C2143: syntax error: missing ';' before '{'
+C:\ems\upstream\emscripten\system\include\SDL\SDL_endian.h(183,1): error C2447: '{': missing function header (old-style formal list?)
+C:\ems\upstream\emscripten\system\include\SDL\SDL_endian.h(204,20): error C3646: 'ui32': unknown override specifier
+  Generating Code...
+C:\ems\upstream\emscripten\system\include\SDL\SDL_endian.h(204,20): fatal error C1003: error count exceeds 100; stopping compilation
